@@ -7,7 +7,7 @@ body {
 }
 
 /*Video Background*/
-.homepage-hero-module {
+/* .homepage-hero-module {
     border-right: none;
     border-left: none;
     position: relative;
@@ -47,14 +47,14 @@ body {
 }
 .video-container video.fillWidth {
     width: 100%;
-}
+} */
 
 main {
   margin: 4rem;
   background-color: #E5E5E5;
 }
 
-div {
+.pixel {
   width: 25px;
   height: 25px;
   border: solid 1px black;
