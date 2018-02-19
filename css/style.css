@@ -20,6 +20,7 @@ header {
   background-color: #59B4AA;
   padding: 15px 4.5rem 15px 4.5rem;
   border-radius: 2rem;
+  text-align: center;
 }
 
 h1 {
@@ -32,20 +33,35 @@ h3 {
   padding: 1.5rem 0 1.5rem;
 }
 
+.main-wrap {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 main {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 4rem;
   background-color: #E5E5E5;
+  border-radius: 2rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
 }
 
 .pixel-wrap {
   display: grid;
-  grid-template-columns: 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px;
-  grid-template-rows: 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px;
+  grid-template-columns: repeat(25, 25px);
+  grid-template-rows: repeat(28, 25px);
   margin: 2rem;
 }
 
 .pixel {
-  /* margin: 2rem; */
+  margin: 2rem;
   width: 25px;
   height: 25px;
   border: solid 1px black;
@@ -54,12 +70,35 @@ main {
 
 .color-palette {
   display: flex;
-  margin: 7rem 4rem 4rem;
+  margin: 4rem 4rem 4rem;
 }
 
 .paintbrush {
-  width: 25px;
-  height: 25px;
+  width: 35px;
+  height: 35px;
   border-radius: 2rem;
+  border: 1px solid black;
   margin: .5rem;
+}
+
+.paintbrush:hover,
+.eraser:hover {
+  position: relative;
+  top: -5px;
+}
+
+.pixel-wrap__div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.eraser {
+  color: #B27F7F;
+  font-size: 5rem;
+  padding: .5rem 1rem;
+  border: 1px solid black;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.8);
+  border-radius: 1rem;
+  margin: 0 1rem 1px 3rem;
 }

@@ -1,51 +1,52 @@
-// Build grid
-for (var i = 0; i < 100; i++) {
+// Global Variables
+var colorPalette = document.getElementsByClassName('color-palette')[0];
+let pixelWrap = document.getElementsByClassName('pixel-wrap')[0];
+var paintBrush;
+var eraser = document.getElementsByClassName('eraser')[0]
+
+// Build pixel grid
+for (var i = 0; i < 700; i++) {
   let pixel = document.createElement('div');
   pixel.className = 'pixel';
   let pixelWrap = document.getElementsByClassName('pixel-wrap')[0];
   pixelWrap.appendChild(pixel);
 }
 
-
-
-// Global Variables
-// var pixelOne = document.querySelector('.pixel-one');
-// var pixelTwo = document.querySelector('.pixel-two');
-// var pixelThree = document.querySelector('.pixel-three');
-// var pixelFour = document.querySelector('.pixel-four')
-var colorOne = document.querySelector('.color-one');
-// var pixel = document.querySelector('.pixel');
-var colorPalette = document.getElementsByClassName('color-palette')[0]
-
-var paintBrush = '';
 // Event Listeners
-// pixel.addEventListener('click', function () {
-//   pixelOne.style.backgroundColor = "red";
-//   console.log('clicked!')
-// });
-//
-// pixelTwo.addEventListener('click', function () {
-//   pixelTwo.style.backgroundColor = "red";
-//   console.log('second pixel!')
-// });
-//
-// pixelThree.addEventListener('click', function () {
-//   pixelThree.style.backgroundColor = "red";
-//   console.log('3rd pixel!')
-// });
-//
-// pixelFour.addEventListener('click', function () {
-//   pixelFour.style.backgroundColor = "red";
-//   console.log('4th pixel!')
-// });
+colorPalette.addEventListener('click', selectColor);
+pixelWrap.addEventListener('mousedown', brushDown);
+pixelWrap.addEventListener('mousemove', addCurrentColor);
+pixelWrap.addEventListener('mouseup', brushUp);
+eraser.addEventListener('click', eraseColor);
 
-// Color Pallete Event Listeners
-colorPalette.addEventListener('click', function (event) {
+// Callback Functions
+function changeColor () {
   paintBrush = event.target.style.backgroundColor;
-  console.log(paintBrush);
-});
+  console.log(paintBrush)
+}
 
-let pixelWrap = document.getElementsByClassName('pixel-wrap')[0];
-pixelWrap.addEventListener('click', function (event) {
-  event.target.style.backgroundColor = paintBrush;
-});
+function selectColor (event) {
+  paintBrush = event.target.style.backgroundColor;
+}
+
+function eraseColor () {
+  event.target.style.backgroundColor = '#FFFFFF';
+}
+
+// Paintbrush Mouse Effect
+var mouseOver = false;
+
+function brushDown (e) {
+  mouseOver = true;
+  e.target.style.backgroundColor = paintBrush;
+}
+
+function brushUp (e) {
+  mouseOver = false
+}
+
+function addCurrentColor (e) {
+  if (mouseOver === true) {
+    e.target.style.backgroundColor = paintBrush;
+  }
+}
